@@ -1,13 +1,24 @@
-/*Funcion de Navegacion de la Barra*/
-function myMenuFunction(){
+/* Función de Navegación de la Barra */
+function myMenuFunction() {
     var menuBtn = document.getElementById("myNavMenu");
 
-    if(menuBtn.className === "nav-menu"){
-        menuBtn.className += " responsive"
-    }else{
-        menuBtn.className = "nav-menu"
+    if (menuBtn.classList.contains("responsive")) {
+        menuBtn.classList.remove("responsive");
+    } else {
+        menuBtn.classList.add("responsive");
     }
 }
+
+/* Cerrar menú cuando se haga clic en un enlace */
+document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", function () {
+        var menuBtn = document.getElementById("myNavMenu");
+        if (menuBtn.classList.contains("responsive")) {
+            menuBtn.classList.remove("responsive");
+        }
+    });
+});
+
 
 /*Sombra en la barra de navegacion mientras se scrolea*/
 
@@ -15,6 +26,7 @@ window.onscroll = function(){headerShadow()};
 
 function headerShadow(){
     const navHeader = document.getElementById("header");
+    const navMenu = document.querySelector(".nav-menu");
 
     if(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
         navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)"
@@ -25,6 +37,20 @@ function headerShadow(){
         navHeader.style.boxShadow = "none"
         navHeader.style.height = "90px"
         navHeader.style.lineHeight = "90px"
+    }
+
+    //Hace que cuando esta en 900 de tamaño se ajuste al header cuando sube y baja
+
+    if (window.innerWidth <= 900) {
+        if(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
+            navMenu.style.top = "68px"
+            navMenu.style.height = "93vh"
+        }
+        else{
+            navMenu.style.top = "80px"
+            navMenu.style.height = "90vh"
+        }
+
     }
 }
 
