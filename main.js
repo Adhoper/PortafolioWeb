@@ -20,6 +20,17 @@ document.querySelectorAll(".nav-link").forEach(link => {
 });
 
 
+//Modo Oscuro
+
+const body = document.querySelector("body"),
+toggleSwitch = document.getElementById("toggle-switch");
+
+toggleSwitch.addEventListener('click',() => {
+    body.classList.toggle("dark");
+    headerShadow();
+})
+
+
 /*Sombra en la barra de navegacion mientras se scrolea*/
 
 window.onscroll = function(){headerShadow()};
@@ -28,8 +39,18 @@ function headerShadow(){
     const navHeader = document.getElementById("header");
     const navMenu = document.querySelector(".nav-menu");
 
+    const isDarkMode = body.classList.contains("dark");
+
     if(document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
-        navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)"
+        if(isDarkMode){
+
+            navHeader.style.boxShadow = "0 1px 6px rgba(255, 255, 255, 0.3)"
+        }
+        else{
+
+            navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)"
+        }
+        
         navHeader.style.height = "70px"
         navHeader.style.lineHeight = "70px"
     }
@@ -84,6 +105,7 @@ sr.reveal('.featured-image',{delay:65})
 //Project Box
 
 sr.reveal('.project-box',{interval: 40});
+sr.reveal('.experience-box',{interval: 40});
 
 //Headings
 
