@@ -1257,17 +1257,19 @@ footer{
       min-height: 700px;
       padding-bottom: 2em;
       position: relative;
+      overflow: visible;
     }
   
     .slide {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 1em;
-      overflow-x: hidden;
-      padding: 1em;
-    }
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 0.4em; /* Reduce separación */
+        overflow-x: visible; /* ← permite que se vea lo que se sale */
+        padding: 1em;
+      }
+      
   
     .slide .item {
       flex: 0 0 75%;
@@ -1280,17 +1282,15 @@ footer{
     }
   
     /* Item siguiente más abajo y más pequeño */
-    .slide .item:nth-child(2) {
-      transform: scale(0.75) translateY(50px);
+    .slide .item:nth-child(2),
+    .slide .item:nth-child(3),
+    .slide .item:nth-child(4) {
+      flex: 0 0 60%; /* Ocupa menos ancho */
+      transform: scale(0.78) translateY(30px);
       filter: brightness(0.5);
       z-index: 0;
     }
-
-    .slide .item:nth-child(3) {
-        transform: scale(0.75) translateY(50px);
-        filter: brightness(0.5);
-        z-index: 0;
-      }
+    
   
     .slide .item .content {
       position: absolute;
