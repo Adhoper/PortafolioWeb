@@ -203,6 +203,7 @@ function isInViewport(el) {
     );
 }
 
+//Animacion linea de tiempo
 function revealTimeline() {
     const items = document.querySelectorAll('.experience-container');
     const timeline = document.querySelector('.time-line');
@@ -218,6 +219,29 @@ function revealTimeline() {
         timeline.classList.add('animate-line');
     }
 }
+
+//Proyectos
+
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
+
+next.addEventListener('click', function () {
+  const items = document.querySelectorAll('.item');
+  if (items.length > 1) {
+    document.querySelector('.slide').appendChild(items[0]);
+  }
+});
+
+prev.addEventListener('click', function () {
+  const items = document.querySelectorAll('.item');
+  if (items.length > 1) {
+    document.querySelector('.slide').prepend(items[items.length - 1]);
+  }
+});
+
+// ScrollReveal animación
+sr.reveal('.project-container-wrapper', { delay: 100 });
+
 
 
 // Ejecuta cuando carga y cuando haces scroll
