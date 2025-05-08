@@ -17,7 +17,7 @@
     --third-color: rgb(245, 189, 76); /* Amarillo más intenso para resaltar detalles */
     --first-shadow-color: rgba(0, 0, 0, 0.15); /* Sombra un poco más definida */
     --mode-color: #aaa; /* Gris neutro */
-    --menu-color-responsive: rgba(255, 245, 230, 0.85); /* Blanco cálido translúcido */
+    --menu-color-responsive: rgb(255, 255, 255, 0.7);
     --white-or-black: #111; /* Negro más fuerte para contraste */
     --shadow-icons: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
     --nav-color: rgb(252, 253, 255);
@@ -447,24 +447,97 @@ h3{
 }
 
 /*ABOUT / SKills Box*/
-.skills-box{
-    margin: 10px;
-}
-.skills-header{
-    margin-bottom: 30px;
-}
-.skills-list{
+/* Contenedor general */
+.about-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  /* Card de introducción */
+  .about-info-card {
+    flex: 1;
+    background: var(--nav-color);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    min-width: 300px;
+  }
+  
+  .about-info-card h3 {
+    color: var(--white-or-black);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .about-info-card p {
+    color: var(--text-color-second);
+    text-align: center;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  
+  /* Skills layout en fila */
+  .skills-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    flex: 1;
+    min-width: 320px;
+  }
+  
+  /* Cada card individual */
+  .skills-card-column {
+    background: var(--nav-color);
+    border-radius: 12px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  .skills-card-column h4 {
+    color: var(--text-color-third);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  /* Grupo de iconos */
+  .icon-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-}
-.skills-list span{
-    font-size: 14px;
-    background: var(--first-color);
-    color: var(--nav-color);
-    padding: 2px 10px;
-    border-radius: 5px;
-}
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  /* Cada icono + nombre */
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-color-second);
+    width: 55px;
+  }
+  
+  .icon-item i {
+    font-size: 32px;
+    transition: transform 0.3s;
+  }
+  
+  .icon-item i:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  
+  
 
 /*PROJECTS BOX*/
 .project-container{
@@ -476,12 +549,12 @@ h3{
 }
 .project-box{
     position: relative;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 46%;
-    height: 370px;
+    width: 30%;
+    height: 310px;
     background: var(--nav-color);
     border-radius: 20px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
@@ -505,7 +578,7 @@ h3{
     font-size: 15px;
     color: #777;
 }
-.project-box::after, .contact-info::after{
+/* .project-box::after, .contact-info::after{
     content: "";
     position: absolute;
     bottom: -100%;
@@ -524,10 +597,126 @@ h3{
 .project-box:hover.project-box>p{
     color: var(--nav-color);
     z-index: 2;
-}
+} */
 
 /*Experiencia Box*/
-.experience-container{
+
+.time-line {
+    width: 100%;
+    max-width: 1000px;
+    margin: 100px auto;
+    position: relative;
+}
+
+.time-line::after {
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: 0;
+    height: 0;
+    width: 4px;
+    background: linear-gradient(var(--second-color), var(--first-color));
+    border-radius: 50px;
+    z-index: -1;
+    transition: height 2s ease;
+}
+
+.time-line.animate-line::after {
+    height: 100%;
+}
+
+
+
+@keyframes LineAnimated {
+    from { height: 0; }
+    to { height: 100%; }
+}
+
+.experience-container {
+    width: 50%;
+    position: relative;
+    padding: 10px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.experience-container.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.experience-container:nth-child(even) {
+    right: -50%;
+}
+
+.experience-container:nth-child(odd)::before,
+.experience-container:nth-child(even)::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background: linear-gradient(var(--first-color), var(--second-color));
+    top: 0;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.experience-container:nth-child(odd)::before {
+    right: -7px;
+}
+
+.experience-container:nth-child(even)::before {
+    left: -10px;
+}
+
+.text-content {
+    padding: 25px 30px;
+    background: var(--nav-color);
+    color: var(--white-or-black);
+    border-radius: 12px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    transition: transform 0.3s;
+}
+
+.text-content h2 {
+    font-size: 20px;
+    color: var(--text-color-third);
+}
+
+.text-content h4 {
+    font-size: 16px;
+    color: var(--first-color);
+    font-weight: 600;
+}
+
+.text-content p {
+    font-size: 14px;
+    color: var(--text-color-second);
+    margin-top: 10px;
+}
+
+.exp-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.company-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.experience-date {
+    font-size: 13px;
+    color: var(--text-color-second);
+}
+
+
+/* .experience-container{
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -555,7 +744,7 @@ h3{
     margin-bottom: 10px;
 }
 .experience-box h3{
-    margin-bottom: 5px; /* Reduce espacio con el label */
+    margin-bottom: 5px; 
     font-size: 20px;
 }
 .experience-box hr {
@@ -574,7 +763,7 @@ h3{
 }
 .experience-content{
     display: flex;
-    align-items: center; /* Centra el texto */
+    align-items: center;
     justify-content: center;
     flex-grow: 0.5;
 }
@@ -613,9 +802,9 @@ h3{
 }
 
 .experience-box:hover hr {
-    background-color: var(--nav-color); /* Cambia el color del fondo */
-    border-color: var(--nav-color); /* Asegura que el borde también cambie */
-}
+    background-color: var(--nav-color); 
+    border-color: var(--nav-color); 
+} */
 
 
 /*Contacto Box*/
@@ -898,15 +1087,43 @@ footer{
     .project-container{
         justify-content: center;
     }
-    .experience-container{
-        justify-content: center;
+    .time-line {
+        padding-left: 25px;
+        margin: 50px auto;
     }
+
+    .time-line::after {
+        left: 39px; /* Alineación más precisa */
+        right: auto;
+    }
+
+    .experience-container {
+        width: 100%;
+        right: 0 !important;
+        padding-left: 50px;
+        padding-right: 15px;
+        margin-bottom: 50px;
+    }
+
+    .experience-container::before {
+        left: 7px !important;  /* Mejor alineado con la línea */
+        right: auto !important;
+        top: 20px;              /* Bajado para alinearse con el bloque */
+        transform: none;
+    }
+
+    .text-content {
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 1px 6px 12px rgba(0, 0, 0, 0.25);
+    }
+
     .project-box{
         width: 80%;
     }
-    .experience-box{
+    /* .experience-box{
         width: 80%;
-    }
+    } */
     .mode {
         margin-right: 15px;
     }
@@ -921,6 +1138,16 @@ footer{
         text-align: center;
         align-items: center;
     }
+    .bottom-footer{
+        align-items: center;
+        font-size: 14px;
+        color: var(--white-or-black);
+        text-align: center;
+        padding: 10px 20px;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+    
 }
 
     /*Media Query Responsive 540px*/
@@ -937,4 +1164,13 @@ footer{
     .input-field{
         width: 100%;
     }
+    .bottom-footer {
+        font-size: 14px;
+        color: var(--white-or-black);
+        text-align: center;
+        padding: 10px 20px;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+    
 }

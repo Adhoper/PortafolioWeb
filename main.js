@@ -25,10 +25,27 @@ document.querySelectorAll(".nav-link").forEach(link => {
 const body = document.querySelector("body"),
 toggleSwitch = document.getElementById("toggle-switch");
 
-toggleSwitch.addEventListener('click',() => {
-    body.classList.toggle("dark");
-    headerShadow();
-})
+document.addEventListener("DOMContentLoaded", () => {
+    // Verifica si el modo oscuro ya está guardado
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark");
+    }
+
+    // Cuando el usuario hace clic en el toggle, guarda la preferencia
+    toggleSwitch.addEventListener("click", () => {
+        body.classList.toggle("dark");
+
+        // Guardar la preferencia en localStorage
+        if (body.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+
+        headerShadow(); // Esto ya lo tienes
+    });
+});
+
 
 
 /*Sombra en la barra de navegacion mientras se scrolea*/
@@ -90,7 +107,7 @@ const sr = ScrollReveal({
     origin: 'top',
     distance: '80px',
     duration: 1200,
-    reset: true
+    reset: false
 })
 
 //Home
@@ -117,7 +134,7 @@ const srLeft = ScrollReveal({
     origin: 'left',
     distance: '80px',
     duration: 1050,
-    reset: true
+    reset: false
 })
 
 srLeft.reveal('.about-info',{delay: 18})
@@ -129,10 +146,13 @@ const srRight = ScrollReveal({
     origin: 'right',
     distance: '80px',
     duration: 1050,
-    reset: true
+    reset: false
 })
 
-srLeft.reveal('.skills-box',{delay: 18})
+
+// Nueva animación para sección "Acerca de mí"
+srLeft.reveal('.about-info-card', { delay: 100 });
+srRight.reveal('.skills-card-column', { interval: 100 });
 srLeft.reveal('.form-control',{delay: 18})
 
 //Cambiar el Link Activo
@@ -175,3 +195,33 @@ document.addEventListener("DOMContentLoaded", function () {
     updateButtonText(); // Ejecuta al inicio
     window.addEventListener("resize", updateButtonText); // Escucha cambios de tamaño
 });
+
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+}
+
+function revealTimeline() {
+    const items = document.querySelectorAll('.experience-container');
+    const timeline = document.querySelector('.time-line');
+
+    items.forEach(item => {
+        if (isInViewport(item)) {
+            item.classList.add('in-view');
+        }
+    });
+
+    // Activa la animación de la línea solo si cualquier ítem está en vista
+    if (isInViewport(timeline)) {
+        timeline.classList.add('animate-line');
+    }
+}
+
+
+// Ejecuta cuando carga y cuando haces scroll
+window.addEventListener('scroll', revealTimeline);
+window.addEventListener('load', revealTimeline);
+
+
