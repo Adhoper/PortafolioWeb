@@ -226,11 +226,23 @@ const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 
 next.addEventListener('click', function () {
-  const items = document.querySelectorAll('.item');
+  const slide = document.querySelector('.slide');
+  const items = slide.querySelectorAll('.item');
+
   if (items.length > 1) {
-    document.querySelector('.slide').appendChild(items[0]);
+    const first = items[0];
+
+    // Aplica la clase de salida
+    first.classList.add('transition-out');
+
+    // Espera la animación antes de mover el nodo
+    setTimeout(() => {
+      slide.appendChild(first);
+      first.classList.remove('transition-out');
+    }, 250); // Debe coincidir con el tiempo en el CSS
   }
 });
+
 
 prev.addEventListener('click', function () {
   const items = document.querySelectorAll('.item');
