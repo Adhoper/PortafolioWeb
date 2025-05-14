@@ -137,8 +137,9 @@ const srLeft = ScrollReveal({
     reset: false
 })
 
-srLeft.reveal('.about-info',{delay: 18})
+// srLeft.reveal('.about-info',{delay: 18})
 srLeft.reveal('.contact-info',{delay: 18})
+srLeft.reveal('.about-bento-left',{delay:18})
 
 //Skills y Forms
 
@@ -152,8 +153,12 @@ const srRight = ScrollReveal({
 
 // Nueva animación para sección "Acerca de mí"
 srLeft.reveal('.about-info-card', { delay: 100 });
-srRight.reveal('.skills-card-column', { interval: 100 });
+srLeft.reveal('.about-bento-right',{delay:100})
 srLeft.reveal('.form-control',{delay: 18})
+
+
+
+
 
 //Cambiar el Link Activo
 
