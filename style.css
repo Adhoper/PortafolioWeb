@@ -616,11 +616,11 @@ h3 {
 
 /* Fondo para cada tarjeta específica */
 .game-lover {
-  background-image: url('/images/Link.jpg');
+  background-image: url('images/Link.jpg');
 }
 
 .game-dev {
-  background-image: url('/images/DesarrolloVideojuegos.jpg');
+  background-image: url('images/DesarrolloVideojuegos.jpg');
 }
 
 /* Etiqueta centrada sobre la imagen */
