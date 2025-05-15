@@ -364,6 +364,9 @@ body.dark #moon {
 .social_icons i {
   font-size: 20px;
 }
+.social_icons a {
+  text-decoration: none;
+}
 .icon {
   display: flex;
   justify-content: center;
@@ -1100,6 +1103,9 @@ footer {
 .bottom-footer a {
   color: var(--first-color);
 }
+.footer-social-icons a {
+  text-decoration: none;
+}
 
 /*Media Query Responsive 1024*/
 @media only screen and (max-width: 1024px) {
@@ -1302,10 +1308,7 @@ footer {
   .col-left, .col-right {
     width: 100%;
   }
-
-  .col-right{
-    flex-direction: row;
-  }
+  
 
   .icon-group {
     justify-content: center;
@@ -1320,6 +1323,24 @@ footer {
 .icon-item i {
   font-size: 35px;
 }
+
+.bento-label p {
+  font-size: 1rem;
+}
+
+.row3 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.row3 .row-col {
+  flex: 1;
+  min-width: calc(50% - 0.5em); /* para que quepan dos en fila */
+}
+
+
 }
 
 @media (max-width: 1024px) {
@@ -1430,4 +1451,18 @@ footer {
     line-height: 1.5;
     word-break: break-word;
   }
+    .icon-item {
+  font-weight: 480;
+  font-size: 13px;
+}
+
+/* Íconos más visibles */
+.icon-item i {
+  font-size: 27px;
+}
+
+.skills-card-column h4{
+  font-size: 16px;
+}
+
 }
