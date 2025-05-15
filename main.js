@@ -260,6 +260,16 @@ prev.addEventListener('click', function () {
 sr.reveal('.project-container-wrapper', { delay: 100 });
 
 
+document.getElementById('downloadBtn').addEventListener('click', function () {
+  const link = document.createElement('a');
+  link.href = 'cv/adriancuretCV.pdf'; // ruta del PDF
+  link.download = 'CV-AdrianCuret.pdf'; // nombre con el que se descargará
+  document.body.appendChild(link); // necesario para Firefox
+  link.click();
+  document.body.removeChild(link);
+});
+
+
 
 // Ejecuta cuando carga y cuando haces scroll
 window.addEventListener('scroll', revealTimeline);
