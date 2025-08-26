@@ -1227,7 +1227,7 @@ footer {
     order: 2;
     justify-content: center;
     align-content: flex-start;
-    min-height: 60vh;
+    min-height: 55vh;
   }
   .social_icons {
     margin-top: 2em;
@@ -1241,8 +1241,12 @@ footer {
   }
   .image,
   .image img {
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
+  }
+  .image img{
+  transform: scale(1.5) translateY(30px); /* 1.2 = 20% más cerca */
+  object-position: center; /* centra al hacer zoom */
   }
   .row {
     display: flex;
