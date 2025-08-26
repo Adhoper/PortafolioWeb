@@ -106,7 +106,7 @@
           </div>
           <div class="featured-image">
             <div class="image">
-              <img src="images/Yo.jpg" alt="avatar" />
+              <img src="images/YoActual.jpg" alt="avatar" />
             </div>
           </div>
           <!-- <div class="scroll-icon-box">
@@ -169,6 +169,14 @@
                       <div class="icon-item">
                         <i class="fab fa-angular" style="color: #dd1b16"></i>
                         <span>Angular</span>
+                      </div>
+                      <div class="icon-item">
+                        <img
+                          src="https://cdn.simpleicons.org/tailwindcss/38BDF8"
+                          alt="Tailwind CSS"
+                          style="width: 28px; height: 28px"
+                        />
+                        <span>Tailwind CSS</span>
                       </div>
                     </div>
                   </div>
@@ -320,17 +328,28 @@
               <div class="slide">
                 <div
                   class="item"
-                  style="background-image: url(./images/SimuVerseLab.png)"
+                  style="background-image: url(./images/prueba.jpg)"
                 >
                   <div class="content">
                     <div class="name">SimuVerse LAB</div>
                     <div class="des">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit...
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit...
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit...
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit...
+                      Es una plataforma de laboratorios virtuales en realidad
+                      virtual que transforma la enseñanza de ciencias como
+                      física, química y electrónica. Desarrollada con Unity VR,
+                      Angular, Tailwind y ASP.NET Core API con JWT, permite a
+                      los estudiantes realizar prácticas inmersivas y seguras
+                      sin necesidad de costosos equipos, impulsando la
+                      innovación y la transformación digital en la educación.
                     </div>
-                    <button><i class="fa-brands fa-github"></i></button>
+                    <a
+                      href="https://github.com/Adhoper/SimuVerseLab-FRONT"
+                      target="_blank"
+                      style="text-decoration: none"
+                    >
+                      <button>
+                        <i class="fa-brands fa-github"></i>
+                      </button>
+                    </a>
                   </div>
                 </div>
                 <div
@@ -379,20 +398,50 @@
               </div>
             </div>
             <div class="col">
-              <div class="form-control">
+              <form class="form-control" id="contactForm">
                 <div class="form-inputs">
-                  <input type="text" class="input-field" placeholder="Nombre" />
-                  <input type="text" class="input-field" placeholder="Correo" />
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="input-field"
+                    placeholder="Nombre"
+                    required
+                  />
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="input-field"
+                    placeholder="Correo"
+                    required
+                  />
                 </div>
                 <div class="text-area">
-                  <textarea placeholder="Message"></textarea>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Mensaje"
+                    rows="8"
+                    required
+                  ></textarea>
                 </div>
+
+                <!-- Si tu template usa {{title}} para el asunto -->
+                <input
+                  type="hidden"
+                  id="title"
+                  name="title"
+                  value="Contacto desde Portafolio AC"
+                />
+
                 <div class="form-button">
-                  <button class="btn">
+                  <button class="btn" id="sendBtn" type="submit">
                     Contactar<i class="fa-solid fa-paper-plane"></i>
                   </button>
                 </div>
-              </div>
+                <p id="formStatus" style="margin-top: 10px"></p>
+              </form>
             </div>
           </div>
         </section>
@@ -458,8 +507,38 @@
       </footer>
     </div>
 
+    <!-- Loader pantalla completa -->
+    <div id="loaderOverlay" class="overlay hidden" aria-hidden="true">
+      <div class="loader-box">
+        <div class="spinner"></div>
+        <p>Enviando…</p>
+      </div>
+    </div>
+
+    <!-- Modal de resultado -->
+    <div id="modalOverlay" class="overlay hidden" aria-hidden="true">
+      <div class="modal">
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">
+          &times;
+        </button>
+        <div class="modal-header">
+          <i id="modalFA" class="fa-solid fa-circle-check"></i>
+          <h3 id="modalTitle">¡Mensaje enviado!</h3>
+        </div>
+        <p id="modalText">Gracias por contactarme. Te responderé pronto.</p>
+        <div class="modal-actions">
+          <button class="btn" id="modalOk">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      // Reemplaza por tu PUBLIC KEY (Dashboard → Account → Public Key)
+      emailjs.init({ publicKey: "ey78JZY4db9S4LhSW" });
+    </script>
   </body>
 </html>
