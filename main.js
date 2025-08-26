@@ -276,3 +276,84 @@ window.addEventListener('scroll', revealTimeline);
 window.addEventListener('load', revealTimeline);
 
 
+//Enviar Correo
+
+// ---- EmailJS ----
+const SERVICE_ID = 'service_i387kka';   // Dashboard → Email Services
+const TEMPLATE_ID = 'template_bsjfmri'; // Dashboard → Email Templates
+
+const form = document.getElementById('contactForm');
+const btn = document.getElementById('sendBtn');
+const statusEl = document.getElementById('formStatus'); // si lo usas
+const loader = document.getElementById('loaderOverlay');
+
+// Modal refs
+const modal = document.getElementById('modalOverlay');
+const modalOk = document.getElementById('modalOk');
+const modalClose = document.getElementById('modalClose');
+const modalFA = document.getElementById('modalFA');
+const modalTitle = document.getElementById('modalTitle');
+const modalText = document.getElementById('modalText');
+
+function showLoader(show) {
+  document.body.classList.toggle('no-scroll', show);
+  loader.classList.toggle('hidden', !show);
+  loader.setAttribute('aria-hidden', show ? 'false' : 'true');
+}
+function openModal({ title, text, type = 'success' }) {
+  // icono
+  modalFA.className = 'fa-solid ' + (type === 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation');
+  modalFA.classList.toggle('icon-error', type === 'error');
+  modalTitle.textContent = title;
+  modalText.textContent = text;
+
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
+  modalOk.focus();
+}
+function closeModal() {
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+}
+modalOk.addEventListener('click', closeModal);
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  // Limpia estado previo y muestra loader
+  statusEl && (statusEl.textContent = '');
+  btn.disabled = true;
+  showLoader(true);
+
+  const params = {
+    name: document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    message: document.getElementById('message').value.trim(),
+    title: document.getElementById('title') ? document.getElementById('title').value : 'Contacto'
+  };
+
+  try {
+    await emailjs.send(SERVICE_ID, TEMPLATE_ID, params);
+    form.reset();
+    openModal({
+      title: '¡Mensaje enviado!',
+      text: 'Gracias por contactarme. Te responderé pronto.',
+      type: 'success'
+    });
+  } catch (err) {
+    console.error(err);
+    openModal({
+      title: 'No se pudo enviar',
+      text: 'Hubo un problema al enviar tu mensaje. Intenta más tarde.',
+      type: 'error'
+    });
+  } finally {
+    btn.disabled = false;
+    showLoader(false);
+  }
+});
+
