@@ -1,6 +1,7 @@
 # 🌐 Portafolio Adrian Curet  
 
 Bienvenido a mi portafolio personal 🚀.  
+
 Aquí muestro mis proyectos, habilidades y experiencia en el desarrollo de software, con un enfoque en **web** y **videojuegos**.  
 
 ## 🖥️ Tecnologías principales  
@@ -24,7 +25,7 @@ Aplicación web de finanzas personales.
 - Tecnologías: Angular, Tailwind, ASP.NET Core, SQL Server.  
 
 ## 📸 Vista previa  
-![Preview](./images/preview.png)  
+![Preview](./images/portafolioac.jpg)  
 *(Puedes reemplazar esta imagen por una captura real de tu portafolio)*  
 
 ## 📬 Contacto  
