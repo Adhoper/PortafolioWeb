@@ -25,8 +25,7 @@ Aplicación web de finanzas personales.
 - Tecnologías: Angular, Tailwind, ASP.NET Core, SQL Server.  
 
 ## 📸 Vista previa  
-![Preview](./images/portafolioac.jpg)  
-*(Puedes reemplazar esta imagen por una captura real de tu portafolio)*  
+![Preview](./images/portafolioac.jpg) 
 
 ## 📬 Contacto  
 - 📧 **Email:** curetmicael@gmail.com  
