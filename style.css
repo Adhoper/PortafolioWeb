@@ -707,7 +707,7 @@ h3 {
   rgba(0, 0, 0, 0.45),
   rgba(0, 0, 0, 0.15)
 );
-  backdrop-filter: blur(2.5px);       /* aplica desenfoque */
+  backdrop-filter: blur(1.5px);       /* aplica desenfoque */
   -webkit-backdrop-filter: blur(6px); /* soporte Safari */
   z-index: 1;
   border-radius: 19px;
