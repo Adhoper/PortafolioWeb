@@ -655,9 +655,6 @@ h3 {
 
 
 
-
-
-
 /* PROJECTS BOX - ADAPTADO Y MEJORADO */
 .project-container-wrapper {
   position: relative;
@@ -712,7 +709,6 @@ h3 {
   z-index: 1;
   border-radius: 19px;
 }
-
 
 .slide .item:nth-child(1) {
   top: 0;
