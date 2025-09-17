@@ -17,7 +17,7 @@ Plataforma educativa que integra simulaciones en realidad virtual (VR) para fís
 - Gestión de aulas, estudiantes y laboratorios.  
 - Tecnologías: Unity VR, Angular, Tailwind, ASP.NET Core (JWT).  
 
-### 💰 [EquilibrApp](https://github.com/Adhoper)  
+### 💰 [EquilibrApp](https://github.com/Adhoper/EquilibrApp_FRONT)  
 Aplicación web de finanzas personales.  
 - Gestión de ingresos, gastos y cuentas por periodos.  
 - Presupuestos y reportes claros para control financiero.  
