@@ -1,4 +1,4 @@
-# 🌐 Portafolio AC  
+# 🌐 Portafolio Adrian Curet  
 
 Bienvenido a mi portafolio personal 🚀.  
 Aquí muestro mis proyectos, habilidades y experiencia en el desarrollo de software, con un enfoque en **web** y **videojuegos**.  
