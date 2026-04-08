@@ -226,35 +226,47 @@ function revealTimeline() {
 }
 
 //Proyectos
-
+const slide = document.querySelector('.slide');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 
-next.addEventListener('click', function () {
-  const slide = document.querySelector('.slide');
-  const items = slide.querySelectorAll('.item');
+let isProjectAnimating = false;
 
-  if (items.length > 1) {
-    const first = items[0];
+if (next && prev && slide) {
+  next.addEventListener('click', function () {
+    if (isProjectAnimating) return;
 
-    // Aplica la clase de salida
-    first.classList.add('transition-out');
+    const items = slide.querySelectorAll('.item');
 
-    // Espera la animación antes de mover el nodo
-    setTimeout(() => {
-      slide.appendChild(first);
-      first.classList.remove('transition-out');
-    }, 250); // Debe coincidir con el tiempo en el CSS
-  }
-});
+    if (items.length > 1) {
+      const first = items[0];
+      isProjectAnimating = true;
 
+      first.classList.add('transition-out');
 
-prev.addEventListener('click', function () {
-  const items = document.querySelectorAll('.item');
-  if (items.length > 1) {
-    document.querySelector('.slide').prepend(items[items.length - 1]);
-  }
-});
+      setTimeout(() => {
+        slide.appendChild(first);
+        first.classList.remove('transition-out');
+        isProjectAnimating = false;
+      }, 250);
+    }
+  });
+
+  prev.addEventListener('click', function () {
+    if (isProjectAnimating) return;
+
+    const items = slide.querySelectorAll('.item');
+
+    if (items.length > 1) {
+      isProjectAnimating = true;
+      slide.prepend(items[items.length - 1]);
+
+      requestAnimationFrame(() => {
+        isProjectAnimating = false;
+      });
+    }
+  });
+}
 
 // ScrollReveal animación
 sr.reveal('.project-container-wrapper', { delay: 100 });
