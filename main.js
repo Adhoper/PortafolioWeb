@@ -229,19 +229,53 @@ function revealTimeline() {
 const slide = document.querySelector('.slide');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
+const projectContainer = slide?.closest('.project-container');
 
 let isProjectAnimating = false;
 
+const isMobileProjectView = () => window.matchMedia('(max-width: 1024px)').matches;
+
+function setProjectSwitching(isSwitching) {
+  projectContainer?.classList.toggle('is-switching', isSwitching);
+}
+
+function waitForProjectTransition(element, callback, fallback = 340) {
+  let finished = false;
+  let timer;
+
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    clearTimeout(timer);
+    element.removeEventListener('transitionend', onTransitionEnd);
+    element.removeEventListener('transitioncancel', finish);
+    callback();
+  };
+
+  const onTransitionEnd = (event) => {
+    if (
+      event.target === element &&
+      (event.propertyName === 'transform' || event.propertyName === 'opacity')
+    ) {
+      finish();
+    }
+  };
+
+  element.addEventListener('transitionend', onTransitionEnd);
+  element.addEventListener('transitioncancel', finish, { once: true });
+  timer = setTimeout(finish, fallback);
+}
+
 if (next && prev && slide) {
   next.addEventListener('click', function () {
-    if (isProjectAnimating) return;
+    if (isProjectAnimating || slide.children.length <= 1) return;
 
-    const items = slide.querySelectorAll('.item');
+    const first = slide.firstElementChild;
+    if (!first) return;
 
-    if (items.length > 1) {
-      const first = items[0];
+    /* Escritorio conserva exactamente el comportamiento anterior. */
+    if (!isMobileProjectView()) {
       isProjectAnimating = true;
-
       first.classList.add('transition-out');
 
       setTimeout(() => {
@@ -249,22 +283,60 @@ if (next && prev && slide) {
         first.classList.remove('transition-out');
         isProjectAnimating = false;
       }, 250);
+
+      return;
     }
+
+    /* Móvil: sincroniza el DOM con la transición real para evitar tirones. */
+    isProjectAnimating = true;
+    setProjectSwitching(true);
+    first.classList.add('transition-out');
+
+    waitForProjectTransition(first, () => {
+      slide.appendChild(first);
+      first.classList.remove('transition-out');
+
+      const newActive = slide.firstElementChild;
+      if (!newActive) {
+        setProjectSwitching(false);
+        isProjectAnimating = false;
+        return;
+      }
+
+      waitForProjectTransition(newActive, () => {
+        setProjectSwitching(false);
+        isProjectAnimating = false;
+      });
+    });
   });
 
   prev.addEventListener('click', function () {
-    if (isProjectAnimating) return;
+    if (isProjectAnimating || slide.children.length <= 1) return;
 
-    const items = slide.querySelectorAll('.item');
+    const last = slide.lastElementChild;
+    if (!last) return;
 
-    if (items.length > 1) {
+    /* Escritorio conserva exactamente el comportamiento anterior. */
+    if (!isMobileProjectView()) {
       isProjectAnimating = true;
-      slide.prepend(items[items.length - 1]);
+      slide.prepend(last);
 
       requestAnimationFrame(() => {
         isProjectAnimating = false;
       });
+
+      return;
     }
+
+    /* Móvil: una sola transición de transform/opacity, sin animar layout. */
+    isProjectAnimating = true;
+    setProjectSwitching(true);
+    slide.prepend(last);
+
+    waitForProjectTransition(last, () => {
+      setProjectSwitching(false);
+      isProjectAnimating = false;
+    });
   });
 }
 
@@ -368,4 +440,3 @@ form.addEventListener('submit', async (e) => {
     showLoader(false);
   }
 });
-
