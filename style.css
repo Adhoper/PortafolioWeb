@@ -638,6 +638,7 @@ h3 {
   transform: translate(0,-50%);
   border-radius: 19px;
   box-shadow: 0 30px 50px rgba(0,0,0,0.4);
+  background-image: var(--bg-desktop);
   background-position: 50% 50%;
   background-size: cover;
   display: inline-block;
@@ -1311,6 +1312,7 @@ footer {
 
   /* Optimización móvil del carrusel: evita transicionar propiedades de layout. */
   .project-container .slide .item {
+    background-image: var(--bg-mobile, var(--bg-desktop));
     transition: transform 0.24s ease, opacity 0.24s ease;
     will-change: transform, opacity;
     backface-visibility: hidden;
@@ -1525,4 +1527,39 @@ footer {
 
 .icon-error {
   color: #f87171 !important;
+}
+
+/* =========================================================
+   AJUSTE SUTIL PARA CELULARES ESTRECHOS
+   No altera estructura, animaciones ni comportamiento base.
+   ========================================================= */
+@media only screen and (max-width: 420px) {
+
+  /* Experiencia:
+     conserva el timeline actual y únicamente recupera espacio horizontal. */
+  #experience .time-line {
+    padding-left: 15px;
+  }
+
+  #experience .time-line::after {
+    left: 29px;
+  }
+
+  #experience .experience-container {
+    padding-left: 40px;
+    padding-right: 5px;
+  }
+
+  /* Proyectos:
+     conserva el preview lateral; solo lo hace ligeramente más pequeño
+     y lo separa de los controles inferiores. */
+  #projects .slide .item:nth-child(2),
+  #projects .slide .item:nth-child(3),
+  #projects .slide .item:nth-child(4) {
+    transform: scale(0.56) translateY(-20px);
+  }
+
+  #projects .project-button {
+    bottom: 8px;
+  }
 }
