@@ -180,6 +180,34 @@ nav {
   align-items: center;
 }
 
+.language-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 40px;
+  margin-right: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 30px;
+  background: var(--mode-color);
+  color: var(--nav-color);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.language-toggle:hover {
+  background: var(--first-color);
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid var(--first-color);
+  outline-offset: 3px;
+}
+
 .nav-menu-btn {
   display: none;
 }
@@ -1584,3 +1612,26 @@ footer {
   }
 }
 
+/* Selector de idioma: ajuste mínimo para headers muy estrechos */
+@media only screen and (max-width: 420px) {
+  .language-toggle {
+    width: 42px;
+    margin-right: 8px;
+    font-size: 12px;
+  }
+
+  .mode {
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .language-toggle {
+    width: 38px;
+    margin-right: 6px;
+  }
+
+  .mode {
+    margin-right: 8px;
+  }
+}

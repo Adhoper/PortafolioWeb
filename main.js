@@ -92,14 +92,201 @@ function headerShadow(){
     }
 }
 
-// Efecto de Escritura
-var typingEffect = new Typed(".typedText",{
-    strings : ["Programador", "Desarrollador"],
+
+// Idioma del portafolio (Español / English)
+const translations = {
+  es: {
+    "meta.title": "Portafolio AC",
+    "nav.home": "Inicio",
+    "nav.about": "Sobre Mí",
+    "nav.experience": "Experiencia",
+    "nav.projects": "Proyectos",
+    "nav.contact": "Contacto",
+    "hero.prefix": "Soy",
+    "hero.typed": ["Programador", "Desarrollador"],
+    "hero.description": "Full Stack con visión técnica, enfoque humano y mentalidad de mejora constante.",
+    "hero.downloadCv": "Descargar CV",
+    "about.title": "Acerca de mí",
+    "about.introductionTitle": "Mi introducción",
+    "about.introduction": "Desarrollador Full Stack con experiencia en Angular, ASP.NET Core API y SQL Server, enfocado en soluciones web funcionales desde el backend hasta el frontend.<br><br>Ingeniero en Tecnologías Computacionales (UNIBE) y egresado del ITLA (Software). Actualmente amplío mis conocimientos en desarrollo web y exploro el desarrollo de videojuegos como complemento.",
+    "about.frontend": "Frontend",
+    "about.backend": "Backend",
+    "about.database": "Base de datos",
+    "about.gamesInspiration": "Los videojuegos han sido mi fuente constante de diversión e inspiración",
+    "about.gameDev": "Explorando el mundo del desarrollo de videojuegos",
+    "experience.title": "Experiencia",
+    "experience.itlaDate": "Junio 2023 – Actualidad",
+    "experience.itlaRole": "Técnico Programador (Full Stack)",
+    "experience.itlaDescription": "Desarrollé y optimicé soluciones web utilizando Angular, JavaScript, SQL Server y ASP.NET Core, aplicando buenas prácticas para construir sistemas eficientes y escalables.",
+    "experience.xpertDate": "Enero 2021 – Marzo 2021",
+    "experience.xpertRole": "Programador Junior",
+    "experience.xpertDescription": "Fortalecí mis habilidades en desarrollo web con JavaScript y adquirí experiencia en la gestión de sitios con WordPress.",
+    "projects.title": "Proyectos",
+    "projects.simuverse": "Es una plataforma de laboratorios virtuales (VR) para física, química y electrónica. Creada con Unity VR, Angular, Tailwind y ASP.NET Core (JWT), permite prácticas inmersivas y seguras sin equipos costosos.",
+    "projects.equilibrapp": "Es una aplicación web de finanzas personales. Desarrollada con Angular, Tailwind y ASP.NET Core, facilita la gestión de ingresos, gastos y cuentas por periodos, ofreciendo reportes claros y prácticos.",
+    "projects.dualBalance": "Endless runner 2D desarrollado en Unity/C# bajo Adhoper Games, con sistema de energía dual, mecánicas de ataque, obstáculos dinámicos y UI/UX para Android y PC.",
+    "projects.previous": "Proyecto anterior",
+    "projects.next": "Proyecto siguiente",
+    "projects.dualGithub": "Dual Balance en GitHub",
+    "projects.dualGooglePlay": "Dual Balance en Google Play",
+    "projects.dualItchio": "Dual Balance en itch.io",
+    "contact.title": "A un toque",
+    "contact.subtitle": "A la disposición, contáctame aquí.",
+    "contact.findMe": "Encuéntrame",
+    "contact.namePlaceholder": "Nombre",
+    "contact.emailPlaceholder": "Correo",
+    "contact.messagePlaceholder": "Mensaje",
+    "contact.emailTitle": "Contacto desde Portafolio AC",
+    "contact.send": "Contactar",
+    "footer.rights": "Todos los derechos reservados",
+    "modal.sending": "Enviando…",
+    "modal.close": "Cerrar",
+    "modal.successTitle": "¡Mensaje enviado!",
+    "modal.successText": "Gracias por contactarme. Te responderé pronto.",
+    "modal.errorTitle": "No se pudo enviar",
+    "modal.errorText": "Hubo un problema al enviar tu mensaje. Intenta más tarde.",
+    "modal.accept": "Aceptar"
+  },
+  en: {
+    "meta.title": "AC Portfolio",
+    "nav.home": "Home",
+    "nav.about": "About Me",
+    "nav.experience": "Experience",
+    "nav.projects": "Projects",
+    "nav.contact": "Contact",
+    "hero.prefix": "I'm a",
+    "hero.typed": ["Programmer", "Developer"],
+    "hero.description": "Full Stack developer with a technical mindset, a human-centered approach, and a focus on continuous improvement.",
+    "hero.downloadCv": "Download CV",
+    "about.title": "About me",
+    "about.introductionTitle": "My introduction",
+    "about.introduction": "Full Stack Developer with experience in Angular, ASP.NET Core API, and SQL Server, focused on building functional web solutions from backend to frontend.<br><br>Computer Technologies Engineer (UNIBE) and ITLA Software graduate. I currently expand my knowledge in web development and explore game development as a complementary field.",
+    "about.frontend": "Frontend",
+    "about.backend": "Backend",
+    "about.database": "Database",
+    "about.gamesInspiration": "Video games have been a constant source of fun and inspiration for me",
+    "about.gameDev": "Exploring the world of game development",
+    "experience.title": "Experience",
+    "experience.itlaDate": "June 2023 – Present",
+    "experience.itlaRole": "Technical Programmer (Full Stack)",
+    "experience.itlaDescription": "Developed and optimized web solutions using Angular, JavaScript, SQL Server, and ASP.NET Core, applying best practices to build efficient and scalable systems.",
+    "experience.xpertDate": "January 2021 – March 2021",
+    "experience.xpertRole": "Junior Programmer",
+    "experience.xpertDescription": "Strengthened my web development skills with JavaScript and gained experience managing WordPress sites.",
+    "projects.title": "Projects",
+    "projects.simuverse": "A virtual laboratory platform (VR) for physics, chemistry, and electronics. Built with Unity VR, Angular, Tailwind, and ASP.NET Core (JWT), it enables immersive and safe practice without costly equipment.",
+    "projects.equilibrapp": "A personal finance web application built with Angular, Tailwind, and ASP.NET Core. It simplifies the management of income, expenses, and accounts by period, providing clear and practical reports.",
+    "projects.dualBalance": "2D endless runner developed in Unity/C# under Adhoper Games, featuring a dual-energy system, attack mechanics, dynamic obstacles, and UI/UX for Android and PC.",
+    "projects.previous": "Previous project",
+    "projects.next": "Next project",
+    "projects.dualGithub": "Dual Balance on GitHub",
+    "projects.dualGooglePlay": "Dual Balance on Google Play",
+    "projects.dualItchio": "Dual Balance on itch.io",
+    "contact.title": "Get in touch",
+    "contact.subtitle": "Available to connect. Contact me here.",
+    "contact.findMe": "Find me",
+    "contact.namePlaceholder": "Name",
+    "contact.emailPlaceholder": "Email",
+    "contact.messagePlaceholder": "Message",
+    "contact.emailTitle": "Contact from AC Portfolio",
+    "contact.send": "Send",
+    "footer.rights": "All rights reserved",
+    "modal.sending": "Sending…",
+    "modal.close": "Close",
+    "modal.successTitle": "Message sent!",
+    "modal.successText": "Thanks for reaching out. I'll get back to you soon.",
+    "modal.errorTitle": "Message could not be sent",
+    "modal.errorText": "There was a problem sending your message. Please try again later.",
+    "modal.accept": "OK"
+  }
+};
+
+const languageToggle = document.getElementById("languageToggle");
+const languageToggleText = document.getElementById("languageToggleText");
+let currentLanguage = localStorage.getItem("portfolioLanguage") || "es";
+let typingEffect = null;
+
+if (!translations[currentLanguage]) {
+  currentLanguage = "es";
+}
+
+function t(key) {
+  return translations[currentLanguage]?.[key] ?? translations.es[key] ?? key;
+}
+
+function applyLanguage(language, { refreshTyping = true } = {}) {
+  if (!translations[language]) return;
+
+  currentLanguage = language;
+  const dictionary = translations[language];
+
+  document.documentElement.lang = language;
+  document.title = dictionary["meta.title"];
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const value = dictionary[element.dataset.i18n];
+    if (typeof value === "string") element.textContent = value;
+  });
+
+  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    const value = dictionary[element.dataset.i18nHtml];
+    if (typeof value === "string") element.innerHTML = value;
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const value = dictionary[element.dataset.i18nPlaceholder];
+    if (typeof value === "string") element.placeholder = value;
+  });
+
+  document.querySelectorAll("[data-i18n-value]").forEach((element) => {
+    const value = dictionary[element.dataset.i18nValue];
+    if (typeof value === "string") element.value = value;
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    const value = dictionary[element.dataset.i18nAriaLabel];
+    if (typeof value === "string") element.setAttribute("aria-label", value);
+  });
+
+  if (languageToggle && languageToggleText) {
+    const switchToEnglish = language === "es";
+    languageToggleText.textContent = switchToEnglish ? "EN" : "ES";
+    languageToggle.setAttribute(
+      "aria-label",
+      switchToEnglish ? "Cambiar a inglés" : "Switch to Spanish"
+    );
+    languageToggle.title = switchToEnglish ? "English" : "Español";
+  }
+
+  localStorage.setItem("portfolioLanguage", language);
+
+  if (refreshTyping) {
+    refreshTypingEffect();
+  }
+}
+
+function refreshTypingEffect() {
+  if (typingEffect) {
+    typingEffect.destroy();
+  }
+
+  typingEffect = new Typed(".typedText", {
+    strings: t("hero.typed"),
     loop: true,
     typeSpeed: 100,
     backSpeed: 80,
     backDelay: 2000
-})
+  });
+}
+
+applyLanguage(currentLanguage, { refreshTyping: false });
+refreshTypingEffect();
+
+languageToggle?.addEventListener("click", () => {
+  applyLanguage(currentLanguage === "es" ? "en" : "es");
+});
+
+// Efecto de escritura administrado por el sistema de idioma
 
 //Scroll Animacion de revelado
 
@@ -187,18 +374,21 @@ window.addEventListener('scroll',scrollActive);
 
 document.addEventListener("DOMContentLoaded", function () {
     const button = document.querySelector(".btn-first");
-    const span = button.querySelector("span"); // Obtiene el span dentro del botón
+    if (!button) return;
+
+    const span = button.querySelector("span");
+    if (!span) return;
 
     function updateButtonText() {
         if (window.innerWidth <= 1050) {
-            span.textContent = " CV "; // Cambia el texto a "CV"
+            span.textContent = " CV ";
         } else {
-            span.textContent = " Descargar CV "; // Restaura el texto completo
+            span.textContent = currentLanguage === "en" ? " Download CV " : " Descargar CV ";
         }
     }
 
-    updateButtonText(); // Ejecuta al inicio
-    window.addEventListener("resize", updateButtonText); // Escucha cambios de tamaño
+    updateButtonText();
+    window.addEventListener("resize", updateButtonText);
 });
 
 function isInViewport(el) {
@@ -429,15 +619,15 @@ form.addEventListener('submit', async (e) => {
     await emailjs.send(SERVICE_ID, TEMPLATE_ID, params);
     form.reset();
     openModal({
-      title: '¡Mensaje enviado!',
-      text: 'Gracias por contactarme. Te responderé pronto.',
+      title: t('modal.successTitle'),
+      text: t('modal.successText'),
       type: 'success'
     });
   } catch (err) {
     console.error(err);
     openModal({
-      title: 'No se pudo enviar',
-      text: 'Hubo un problema al enviar tu mensaje. Intenta más tarde.',
+      title: t('modal.errorTitle'),
+      text: t('modal.errorText'),
       type: 'error'
     });
   } finally {
