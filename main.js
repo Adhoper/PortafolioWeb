@@ -539,11 +539,19 @@ if (isMobileProjectView()) {
 }
 
 
-document.getElementById('downloadBtn').addEventListener('click', function () {
-  const link = document.createElement('a');
-  link.href = 'cv/adriancuretCV.pdf'; // ruta del PDF
-  link.download = 'CV-AdrianCuret.pdf'; // nombre con el que se descargará
-  document.body.appendChild(link); // necesario para Firefox
+document.getElementById("downloadBtn").addEventListener("click", function () {
+  const link = document.createElement("a");
+
+  // Selecciona el CV según el idioma actual del portafolio
+  if (currentLanguage === "en") {
+    link.href = "cv/CV-AdrianCuret-EN.pdf";
+    link.download = "CV-AdrianCuret-EN.pdf";
+  } else {
+    link.href = "cv/CV-AdrianCuret-ES.pdf";
+    link.download = "CV-AdrianCuret-ES.pdf";
+  }
+
+  document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 });
