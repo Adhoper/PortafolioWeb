@@ -9,6 +9,20 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Precarga solo el proyecto inicial para evitar tirón al entrar a la sección -->
+    <link
+      rel="preload"
+      as="image"
+      href="./images/prueba-desktop.webp"
+      media="(min-width: 1025px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./images/prueba-mobile.webp"
+      media="(max-width: 1024px)"
+    />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -340,7 +354,7 @@
               <div class="slide">
                 <div
                   class="item"
-                  style="--bg-desktop: url('./images/prueba.jpg'); --bg-mobile: url('./images/SimuVerseLabMobile.png')"
+                  style="--bg-desktop: url('./images/prueba-desktop.webp'); --bg-mobile: url('./images/prueba-mobile.webp')"
                 >
                   <div class="content">
                     <div class="name">SimuVerse LAB</div>
@@ -365,7 +379,7 @@
                 </div>
                 <div
                   class="item"
-                  style="--bg-desktop: url('./images/equilibrapp.png'); --bg-mobile: url('./images/EquilibrappMobile.png')"
+                  style="--bg-desktop: url('./images/equilibrapp-desktop.webp'); --bg-mobile: url('./images/equilibrapp-mobile.webp')"
                 >
                   <div class="content">
                     <div class="name">EquilibrApp</div>
@@ -391,7 +405,7 @@
 
                 <div
                   class="item"
-                  style="--bg-desktop: url('./images/DualBalance.png'); --bg-mobile: url('./images/PublicacionLanzamiento.png')"
+                  style="--bg-desktop: url('./images/DualBalance-desktop.webp'); --bg-mobile: url('./images/DualBalance-mobile.webp')"
                 >
                   <div class="content">
                     <div class="name">Dual Balance</div>
@@ -614,6 +628,7 @@
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+      // Reemplaza por tu PUBLIC KEY (Dashboard → Account → Public Key)
       emailjs.init({ publicKey: "ey78JZY4db9S4LhSW" });
     </script>
   </body>

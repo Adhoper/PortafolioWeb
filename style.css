@@ -1563,3 +1563,24 @@ footer {
     bottom: 8px;
   }
 }
+
+/* =========================================================
+   RENDIMIENTO DEL CARRUSEL EN MÓVIL
+   Evita reservar capas GPU para todos los proyectos en reposo.
+   ========================================================= */
+@media (max-width: 1024px) {
+  .project-container .slide .item {
+    will-change: auto;
+  }
+
+  .project-container .slide .item .content .name,
+  .project-container .slide .item .content .des,
+  .project-container .slide .item .content button {
+    will-change: auto;
+  }
+
+  .project-container.is-switching .slide .item {
+    will-change: transform, opacity;
+  }
+}
+

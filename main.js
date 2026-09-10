@@ -341,7 +341,12 @@ if (next && prev && slide) {
 }
 
 // ScrollReveal animación
-sr.reveal('.project-container-wrapper', { delay: 100 });
+if (isMobileProjectView()) {
+  // En móvil la entrada es más corta para evitar un tirón al componer el carrusel.
+  sr.reveal('.project-container-wrapper', { delay: 0, distance: '20px', duration: 500 });
+} else {
+  sr.reveal('.project-container-wrapper', { delay: 100 });
+}
 
 
 document.getElementById('downloadBtn').addEventListener('click', function () {
