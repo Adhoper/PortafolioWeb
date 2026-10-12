@@ -46,23 +46,33 @@
         <div class="nav-menu" id="myNavMenu">
           <ul class="nav_menu_list">
             <li class="nav_list">
-              <a href="#home" class="nav-link active-link" data-i18n="nav.home">Inicio</a>
+              <a href="#home" class="nav-link active-link" data-i18n="nav.home"
+                >Inicio</a
+              >
               <div class="circle"></div>
             </li>
             <li class="nav_list">
-              <a href="#about" class="nav-link" data-i18n="nav.about">Sobre Mí</a>
+              <a href="#about" class="nav-link" data-i18n="nav.about"
+                >Sobre Mí</a
+              >
               <div class="circle"></div>
             </li>
             <li class="nav_list">
-              <a href="#experience" class="nav-link" data-i18n="nav.experience">Experiencia</a>
+              <a href="#experience" class="nav-link" data-i18n="nav.experience"
+                >Experiencia</a
+              >
               <div class="circle"></div>
             </li>
             <li class="nav_list">
-              <a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a>
+              <a href="#projects" class="nav-link" data-i18n="nav.projects"
+                >Proyectos</a
+              >
               <div class="circle"></div>
             </li>
             <li class="nav_list">
-              <a href="#contact" class="nav-link" data-i18n="nav.contact">Contacto</a>
+              <a href="#contact" class="nav-link" data-i18n="nav.contact"
+                >Contacto</a
+              >
               <div class="circle"></div>
             </li>
           </ul>
@@ -102,7 +112,10 @@
               <span>Adrian Micael Curet Ortiz</span>
             </div>
             <div class="featured-name">
-              <p><span data-i18n="hero.prefix">Soy</span> <span class="typedText">Desarrollador</span></p>
+              <p>
+                <span data-i18n="hero.prefix">Soy</span>
+                <span class="typedText">Desarrollador</span>
+              </p>
             </div>
             <div class="featured-text-info">
               <p data-i18n="hero.description">
@@ -273,7 +286,9 @@
 
               <div class="row-about bottom bento-image-card game-dev">
                 <div class="bento-label">
-                  <p data-i18n="about.gameDev">Explorando el mundo del desarrollo de videojuegos</p>
+                  <p data-i18n="about.gameDev">
+                    Explorando el mundo del desarrollo de videojuegos
+                  </p>
                 </div>
               </div>
             </div>
@@ -296,10 +311,16 @@
                   />
                   <div>
                     <h2>Instituto Tecnológico De Las Américas (ITLA)</h2>
-                    <span class="experience-date" data-i18n="experience.itlaDate">Junio 2023 – Actualidad</span>
+                    <span
+                      class="experience-date"
+                      data-i18n="experience.itlaDate"
+                      >Junio 2023 – Actualidad</span
+                    >
                   </div>
                 </div>
-                <h4 data-i18n="experience.itlaRole">Técnico Programador (Full Stack)</h4>
+                <h4 data-i18n="experience.itlaRole">
+                  Técnico Programador (Full Stack)
+                </h4>
                 <p data-i18n="experience.itlaDescription">
                   Desarrollé y optimicé soluciones web utilizando Angular,
                   JavaScript, SQL Server y ASP.NET Core, aplicando buenas
@@ -317,7 +338,11 @@
                   />
                   <div>
                     <h2>XpertCode</h2>
-                    <span class="experience-date" data-i18n="experience.xpertDate">Enero 2021 – Marzo 2021</span>
+                    <span
+                      class="experience-date"
+                      data-i18n="experience.xpertDate"
+                      >Enero 2021 – Marzo 2021</span
+                    >
                   </div>
                 </div>
                 <h4 data-i18n="experience.xpertRole">Programador Junior</h4>
@@ -354,68 +379,188 @@
                 </div> -->
         </section>
 
-        <!--Proyectos-->
+        <!-- ============================== -->
+        <!-- PROYECTOS -->
+        <!-- ============================== -->
+
         <section class="section" id="projects">
           <div class="top-header">
             <h1 data-i18n="projects.title">Proyectos</h1>
           </div>
+
           <div class="project-container-wrapper">
             <div class="project-container">
               <div class="slide">
+                <!-- ======================================== -->
+                <!-- PROYECTO: SIMUVERSE LAB -->
+                <!-- ======================================== -->
+
                 <div
                   class="item"
-                  style="--bg-desktop: url('./images/prueba-desktop.webp'); --bg-mobile: url('./images/prueba-mobile.webp')"
+                  style="
+                    --bg-desktop: url(&quot;./images/prueba-desktop.webp&quot;);
+                    --bg-mobile: url(&quot;./images/prueba-mobile.webp&quot;);
+                  "
                 >
                   <div class="content">
                     <div class="name">SimuVerse LAB</div>
+
                     <div class="des" data-i18n="projects.simuverse">
                       Es una plataforma de laboratorios virtuales (VR) para
                       física, química y electrónica. Creada con Unity VR,
                       Angular, Tailwind y ASP.NET Core (JWT), permite prácticas
                       inmersivas y seguras sin equipos costosos.
                     </div>
+
                     <div class="project-links">
+                      <!-- GITHUB -->
                       <a
                         href="https://github.com/Adhoper/SimuVerseLab-FRONT"
                         target="_blank"
-                        style="text-decoration: none"
+                        rel="noopener noreferrer"
+                        aria-label="SimuVerse LAB en GitHub"
+                        data-i18n-aria-label="projects.simuverseGithub"
                       >
-                        <button>
+                        <button title="GitHub">
                           <i class="fa-brands fa-github"></i>
                         </button>
                       </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="item"
-                  style="--bg-desktop: url('./images/equilibrapp-desktop.webp'); --bg-mobile: url('./images/equilibrapp-mobile.webp')"
-                >
-                  <div class="content">
-                    <div class="name">EquilibrApp</div>
-                    <div class="des" data-i18n="projects.equilibrapp">
-                      Es una aplicación web de finanzas personales. Desarrollada
-                      con Angular, Tailwind y ASP.NET Core, facilita la gestión
-                      de ingresos, gastos y cuentas por periodos, ofreciendo
-                      reportes claros y prácticos.
-                    </div>
-                    <div class="project-links">
+
+                      <!-- DEMO -->
                       <a
-                        href="https://github.com/Adhoper/EquilibrApp_FRONT"
+                        href="https://simuverselab.netlify.app/"
                         target="_blank"
-                        style="text-decoration: none"
+                        rel="noopener noreferrer"
+                        aria-label="Ver demo de SimuVerse LAB"
+                        data-i18n-aria-label="projects.simuverseDemo"
                       >
-                        <button>
-                          <i class="fa-brands fa-github"></i>
+                        <button title="Demo">
+                          <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </button>
                       </a>
                     </div>
                   </div>
                 </div>
 
+                <!-- FIN PROYECTO: SIMUVERSE LAB -->
+
+                <!-- ======================================== -->
+                <!-- PROYECTO: EQUILIBRAPP -->
+                <!-- ======================================== -->
+
                 <div
                   class="item"
-                  style="--bg-desktop: url('./images/DualBalance-desktop.webp'); --bg-mobile: url('./images/DualBalance-mobile.webp')"
+                  style="
+                    --bg-desktop: url(&quot;./images/equilibrapp-desktop.webp&quot;);
+                    --bg-mobile: url(&quot;./images/equilibrapp-mobile.webp&quot;);
+                  "
+                >
+                  <div class="content">
+                    <div class="name">EquilibrApp</div>
+
+                    <div class="des" data-i18n="projects.equilibrapp">
+                      Es una aplicación web de finanzas personales. Desarrollada
+                      con Angular, Tailwind y ASP.NET Core, facilita la gestión
+                      de ingresos, gastos y cuentas por periodos, ofreciendo
+                      reportes claros y prácticos.
+                    </div>
+
+                    <div class="project-links">
+                      <!-- GITHUB -->
+                      <a
+                        href="https://github.com/Adhoper/EquilibrApp_FRONT"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="EquilibrApp en GitHub"
+                        data-i18n-aria-label="projects.equilibrappGithub"
+                      >
+                        <button title="GitHub">
+                          <i class="fa-brands fa-github"></i>
+                        </button>
+                      </a>
+
+                      <!-- DEMO -->
+                      <a
+                        href="https://equilibrapp.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Ver demo de EquilibrApp"
+                        data-i18n-aria-label="projects.equilibrappDemo"
+                      >
+                        <button title="Demo">
+                          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FIN PROYECTO: EQUILIBRAPP -->
+
+                <!-- ======================================== -->
+                <!-- PROYECTO: EVENTLY -->
+                <!-- ======================================== -->
+
+                <div
+                  class="item"
+                  style="
+                    --bg-desktop: url(&quot;./images/evently-desktop.webp&quot;);
+                    --bg-mobile: url(&quot;./images/evently-mobile.webp&quot;);
+                  "
+                >
+                  <div class="content">
+                    <div class="name">Evently</div>
+
+                    <div class="des" data-i18n="projects.evently">
+                      Plataforma web para descubrir y gestionar eventos.
+                      Desarrollada con React, TypeScript, Tailwind y ASP.NET
+                      Core, incluye reservas con QR, check-in, roles, paneles de
+                      organizador y administrador, equipos por evento y
+                      recuperación de contraseña.
+                    </div>
+
+                    <div class="project-links">
+                      <!-- GITHUB -->
+                      <a
+                        href="https://github.com/Adhoper/evently-front"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Evently en GitHub"
+                        data-i18n-aria-label="projects.eventlyGithub"
+                      >
+                        <button title="GitHub">
+                          <i class="fa-brands fa-github"></i>
+                        </button>
+                      </a>
+
+                      <!-- DEMO -->
+                      <a
+                        href="https://eventlyfront.netlify.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Ver demo de Evently"
+                        data-i18n-aria-label="projects.eventlyDemo"
+                      >
+                        <button title="Demo">
+                          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FIN PROYECTO: EVENTLY -->
+
+                <!-- ======================================== -->
+                <!-- PROYECTO: DUAL BALANCE -->
+                <!-- ======================================== -->
+
+                <div
+                  class="item"
+                  style="
+                    --bg-desktop: url(&quot;./images/DualBalance-desktop.webp&quot;);
+                    --bg-mobile: url(&quot;./images/DualBalance-mobile.webp&quot;);
+                  "
                 >
                   <div class="content">
                     <div class="name">Dual Balance</div>
@@ -427,36 +572,39 @@
                     </div>
 
                     <div class="project-links">
-                      <!-- GitHub -->
+                      <!-- GITHUB -->
                       <a
                         href="https://github.com/adhopergames"
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Dual Balance en GitHub" data-i18n-aria-label="projects.dualGithub"
+                        aria-label="Dual Balance en GitHub"
+                        data-i18n-aria-label="projects.dualGithub"
                       >
                         <button title="GitHub">
                           <i class="fa-brands fa-github"></i>
                         </button>
                       </a>
 
-                      <!-- Google Play -->
+                      <!-- GOOGLE PLAY -->
                       <a
                         href="https://play.google.com/store/apps/details?id=com.adhopergames.dualbalance&pcampaignid=web_share"
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Dual Balance en Google Play" data-i18n-aria-label="projects.dualGooglePlay"
+                        aria-label="Dual Balance en Google Play"
+                        data-i18n-aria-label="projects.dualGooglePlay"
                       >
                         <button title="Google Play">
                           <i class="fa-brands fa-google-play"></i>
                         </button>
                       </a>
 
-                      <!-- itch.io -->
+                      <!-- ITCH.IO -->
                       <a
                         href="https://adhopergames.itch.io/dual-balance"
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Dual Balance en itch.io" data-i18n-aria-label="projects.dualItchio"
+                        aria-label="Dual Balance en itch.io"
+                        data-i18n-aria-label="projects.dualItchio"
                       >
                         <button title="itch.io">
                           <i class="fa-brands fa-itch-io"></i>
@@ -465,29 +613,58 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- FIN PROYECTO: DUAL BALANCE -->
               </div>
+              <!-- FIN .slide -->
+
+              <!-- ======================================== -->
+              <!-- BOTONES DEL CARRUSEL -->
+              <!-- ======================================== -->
+
               <div class="project-button">
-                <button class="prev" aria-label="Proyecto anterior" data-i18n-aria-label="projects.previous">
+                <button
+                  class="prev"
+                  aria-label="Proyecto anterior"
+                  data-i18n-aria-label="projects.previous"
+                >
                   <i class="fa-solid fa-arrow-left"></i>
                 </button>
-                <button class="next" aria-label="Proyecto siguiente" data-i18n-aria-label="projects.next">
+
+                <button
+                  class="next"
+                  aria-label="Proyecto siguiente"
+                  data-i18n-aria-label="projects.next"
+                >
                   <i class="fa-solid fa-arrow-right"></i>
                 </button>
               </div>
+              <!-- FIN .project-button -->
             </div>
+            <!-- FIN .project-container -->
           </div>
+          <!-- FIN .project-container-wrapper -->
         </section>
+
+        <!-- ============================== -->
+        <!-- FIN PROYECTOS -->
+        <!-- ============================== -->
 
         <!--Contacto-->
         <section class="section" id="contact">
           <div class="top-header">
             <h1 data-i18n="contact.title">A un toque</h1>
-            <span data-i18n="contact.subtitle">A la disposición, contáctame aquí.</span>
+            <span data-i18n="contact.subtitle"
+              >A la disposición, contáctame aquí.</span
+            >
           </div>
           <div class="row">
             <div class="col">
               <div class="contact-info">
-                <h2><span data-i18n="contact.findMe">Encuéntrame</span> <i class="fa-solid fa-arrow-turn-down"></i></h2>
+                <h2>
+                  <span data-i18n="contact.findMe">Encuéntrame</span>
+                  <i class="fa-solid fa-arrow-turn-down"></i>
+                </h2>
                 <p>
                   <i class="fa-regular fa-envelope"></i> Email:
                   curetmicael@gmail.com
@@ -506,7 +683,8 @@
                     name="name"
                     type="text"
                     class="input-field"
-                    placeholder="Nombre" data-i18n-placeholder="contact.namePlaceholder"
+                    placeholder="Nombre"
+                    data-i18n-placeholder="contact.namePlaceholder"
                     required
                   />
                   <input
@@ -514,7 +692,8 @@
                     name="email"
                     type="email"
                     class="input-field"
-                    placeholder="Correo" data-i18n-placeholder="contact.emailPlaceholder"
+                    placeholder="Correo"
+                    data-i18n-placeholder="contact.emailPlaceholder"
                     required
                   />
                 </div>
@@ -522,7 +701,8 @@
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Mensaje" data-i18n-placeholder="contact.messagePlaceholder"
+                    placeholder="Mensaje"
+                    data-i18n-placeholder="contact.messagePlaceholder"
                     rows="8"
                     required
                   ></textarea>
@@ -533,7 +713,8 @@
                   type="hidden"
                   id="title"
                   name="title"
-                  value="Contacto desde Portafolio AC" data-i18n-value="contact.emailTitle"
+                  value="Contacto desde Portafolio AC"
+                  data-i18n-value="contact.emailTitle"
                 />
 
                 <div class="form-button">
@@ -603,7 +784,8 @@
           <p>
             Copyright &copy;
             <a href="#home" style="text-decoration: none">Adhoper</a> -
-            <span data-i18n="footer.rights">Todos los derechos reservados</span> - 2026
+            <span data-i18n="footer.rights">Todos los derechos reservados</span>
+            - 2026
           </p>
         </div>
       </footer>
@@ -620,16 +802,27 @@
     <!-- Modal de resultado -->
     <div id="modalOverlay" class="overlay hidden" aria-hidden="true">
       <div class="modal">
-        <button class="modal-close" id="modalClose" aria-label="Cerrar" data-i18n-aria-label="modal.close">
+        <button
+          class="modal-close"
+          id="modalClose"
+          aria-label="Cerrar"
+          data-i18n-aria-label="modal.close"
+        >
           &times;
         </button>
         <div class="modal-header">
           <i id="modalFA" class="fa-solid fa-circle-check"></i>
-          <h3 id="modalTitle" data-i18n="modal.successTitle">¡Mensaje enviado!</h3>
+          <h3 id="modalTitle" data-i18n="modal.successTitle">
+            ¡Mensaje enviado!
+          </h3>
         </div>
-        <p id="modalText" data-i18n="modal.successText">Gracias por contactarme. Te responderé pronto.</p>
+        <p id="modalText" data-i18n="modal.successText">
+          Gracias por contactarme. Te responderé pronto.
+        </p>
         <div class="modal-actions">
-          <button class="btn" id="modalOk" data-i18n="modal.accept">Aceptar</button>
+          <button class="btn" id="modalOk" data-i18n="modal.accept">
+            Aceptar
+          </button>
         </div>
       </div>
     </div>
